@@ -1,0 +1,70 @@
+,Identifier,AUC_Values,wt vs old mCherry ttest
+1,wt,1029163.771,0.841686375
+1,wt,196958.2811,wt vs new mCherry ttest
+1,wt,260271.1551,0.841686375
+1,wt,931117.6137,
+1,wt,105413.6542,
+1,wt,418305.0601,
+1,wt,706175.698,
+1,wt,730121.6221,
+1,wt,585005.9308,
+1,wt,461346.7492,
+1,wt,844396.788,
+1,wt,232493.4073,
+1,wt,159739.9054,
+2,old mCherry,629341.3277,old mCherry vs new mCherry ttest
+2,old mCherry,607988.2324,1
+2,old mCherry,238811.2646,
+2,old mCherry,208062.8283,
+2,old mCherry,422726.3634,
+2,old mCherry,1693967.067,
+2,old mCherry,88380.78229,
+2,old mCherry,1009197.842,
+2,old mCherry,171830.8858,
+2,old mCherry,82068.94263,
+2,old mCherry,112174.1317,
+3,new mCherry,629341.3277,
+3,new mCherry,607988.2324,
+3,new mCherry,238811.2646,
+3,new mCherry,208062.8283,
+3,new mCherry,422726.3634,
+3,new mCherry,1693967.067,
+3,new mCherry,88380.78229,
+3,new mCherry,1009197.842,
+3,new mCherry,171830.8858,
+3,new mCherry,82068.94263,
+3,new mCherry,112174.1317,ttest old orai vs new orai
+4,old orai,140288.6366,0.064388353
+4,old orai,1441410.912,ttest wt vs old orai
+4,old orai,372808.139,0.475322978
+4,old orai,158903.1814,
+4,old orai,1244443.494,ttest wt vs new orai
+5,new orai,102509.3617,0.011050654
+5,new orai,160022.8238,
+5,new orai,174289.5528,
+5,new orai,269415.6336,
+5,new orai,65361.81233,
+5,new orai,39972.76599,
+6,stim,736774.5689,ttest wt vs stim 
+6,stim,1294270.384,0.012646292
+6,stim,3075056.694,
+6,stim,858284.1784,
+6,stim,1291761.978,
+6,stim,1798685.579,
+6,stim,653615.5614,
+6,stim,822969.4442,
+6,stim,651323.2522,
+6,stim,431119.5986,ttest wt vs best2
+7,best2,341462.9101,0.276207786
+7,best2,505946.1332,
+7,best2,332263.6849,
+7,best2,200041.6346,
+7,best2,89602.91492,
+7,best2,552220.1231,
+7,best2,186395.3398,
+7,best2,589218.3583,
+7,best2,451658.6605,
+7,best2,520981.3596,
+7,best2,914527.4822,
+7,best2,147146.8401,
+7,best2,269583.0742,
