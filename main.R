@@ -48,9 +48,16 @@ serca_peak1_cutoff <- 70
 sercamCherry_peak1_cutoff <- 70
 wt_peak1_cutoff <- 50
 best2_peak1_cutoff <- 70
-old_mCherry_peak1_cutoff <- 46
-new_mCherry_peak1_cutoff <- 46
+old_mCherry_peak1_cutoff <- 48
+new_mCherry_peak1_cutoff <- 50
 
+# stim is compared to old mCherry
+# 
+# best2 is compared to wt
+# 
+# old orai is compared to old mCherry
+# 
+# new orai is compared to new mCherry
 
 
 
