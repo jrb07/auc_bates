@@ -41,15 +41,18 @@ serca_df <- sheet0[ , grepl("SERCA_",names(sheet0))]
 sercamCherry_df <- sheet0[ , grepl("SERCAmCherry_",names(sheet0))]
 
 #assign cutoff values for the 1st peak which will be the start of peak 2
-stim_peak1_cutoff <- 48
-new_orai_peak1_cutoff <- 46
-old_orai_peak1_cutoff <- 46
+stim_peak1_cutoff <- 50
+old_mCherry_peak1_cutoff <- 50
+old_orai_peak1_cutoff <- 50
+
 serca_peak1_cutoff <- 70
 sercamCherry_peak1_cutoff <- 70
-wt_peak1_cutoff <- 50
-best2_peak1_cutoff <- 70
-old_mCherry_peak1_cutoff <- 48
-new_mCherry_peak1_cutoff <- 50
+
+best2_peak1_cutoff <- 68
+wt_peak1_cutoff <- 68
+
+new_orai_peak1_cutoff <- 48
+new_mCherry_peak1_cutoff <- 48
 
 # stim is compared to old mCherry
 # 
