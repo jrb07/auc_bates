@@ -26,7 +26,7 @@ if(!require('tidyr'))
 }
 
 #sheet0 will be our main excel sheet
-sheet0 = read_csv("clean_data_.csv")
+sheet0 = read_csv("in/clean_data_.csv")
 
 #Use grepl to grab all column data that matches a search string to create dfs
 position_df <- sheet0[ , grepl("POSITION", names(sheet0))]
@@ -250,7 +250,7 @@ j <- ggplot() +
 print(j)
 
 #save the AUC dot plot in the current directory
-ggsave(file="AUC_gray_values_dotplot.png", plot=j,
+ggsave(file="out/AUC_gray_values_dotplot.png", plot=j,
        width=300, height=100, units="mm")
 # 0 to 60 distance in microns plot
 #create an Identifier (x label) array that will mirror the AUC values array
@@ -285,11 +285,9 @@ r <- ggplot() +
 print(r)
 
 #save the AUC dot plot in the current directory
-ggsave(file="peak1_AUC_gray_values_dotplot.png", plot=r,
+ggsave(file="out/peak1_AUC_gray_values_dotplot.png", plot=r,
        width=300, height=100, units="mm")
 
-#save the dotplot dataframe as a new table
-write.csv(dotplot_df, file = "peak1_auc_out.csv")
 # 60 to end distance in microns plot
 #create an Identifier (x label) array that will mirror the AUC values array
 Identifier_peak2 <-c(rep("wt", length(peak2_wt_aucs)),
@@ -323,13 +321,13 @@ b <- ggplot() +
 print(b)
 
 #save the AUC dot plot in the current directory
-ggsave(file="peak2_AUC_gray_values_dotplot.png", plot=b,
+ggsave(file="out/peak2_AUC_gray_values_dotplot.png", plot=b,
        width=300, height=100, units="mm")
 
 #save the dataframes as new tables
-write.csv(dotplot_df, file = "total_distance_auc_out.csv")
-write.csv(peak1_dotplot_df, file = "peak1_distance_auc_out.csv")
-write.csv(peak2_dotplot_df, file = "peak2_distance_auc_out.csv")
+write.csv(dotplot_df, file = "out/total_distance_auc_out.csv")
+write.csv(peak1_dotplot_df, file = "out/peak1_distance_auc_out.csv")
+write.csv(peak2_dotplot_df, file = "out/peak2_distance_auc_out.csv")
 
 #generate citations
 citation() # R citation
