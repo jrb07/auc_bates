@@ -1,81 +1,81 @@
 "","Identifier_non_abs","AUC_Values_non_abs"
-"1","wt_non_abs",-864914.792204398
-"2","wt_non_abs",193372.905316437
-"3","wt_non_abs",258515.3262874
-"4","wt_non_abs",-816603.485410936
-"5","wt_non_abs",-13645.7717952088
-"6","wt_non_abs",416373.993948495
-"7","wt_non_abs",-496806.00427091
-"8","wt_non_abs",-560443.96181425
-"9","wt_non_abs",-450983.125730381
-"10","wt_non_abs",448862.502202713
-"11","wt_non_abs",843963.032996214
-"12","wt_non_abs",-135864.658061325
-"13","wt_non_abs",154563.478880825
-"14","old mCherry_non_abs",-498444.117789054
-"15","old mCherry_non_abs",-452186.98956389
-"16","old mCherry_non_abs",238811.264575277
-"17","old mCherry_non_abs",-64939.7039350239
-"18","old mCherry_non_abs",408990.61764696
-"19","old mCherry_non_abs",-1546927.42629349
-"20","old mCherry_non_abs",87558.0707849596
-"21","old mCherry_non_abs",1008888.75224694
-"22","old mCherry_non_abs",17756.1510956413
-"23","old mCherry_non_abs",73772.7943210031
-"24","old mCherry_non_abs",-17949.7154704577
-"25","new mCherry_non_abs",40167.2938021011
-"26","new mCherry_non_abs",29087.3517639347
-"27","new mCherry_non_abs",36737.031276801
-"28","new mCherry_non_abs",30765.6678719658
-"29","new mCherry_non_abs",35901.9457236221
-"30","new mCherry_non_abs",39621.3418957035
-"31","new mCherry_non_abs",26316.9503337704
-"32","new mCherry_non_abs",30273.0313490874
-"33","old orai_non_abs",105739.847069298
-"34","old orai_non_abs",1436348.51315427
-"35","old orai_non_abs",-231393.8958356
-"36","old orai_non_abs",-50383.0279731932
-"37","old orai_non_abs",-1054321.39088652
-"38","new orai_non_abs",102509.361667648
-"39","new orai_non_abs",160022.823769493
-"40","new orai_non_abs",-146948.395333669
-"41","new orai_non_abs",269415.633572929
-"42","new orai_non_abs",65361.8123310341
-"43","new orai_non_abs",39972.7659933671
-"44","stim_non_abs",720994.252799936
-"45","stim_non_abs",1288925.61462682
-"46","stim_non_abs",-2901497.226978
-"47","stim_non_abs",-642524.665896262
-"48","stim_non_abs",1291761.97816146
-"49","stim_non_abs",-1621262.84453711
-"50","stim_non_abs",-580127.209347534
-"51","stim_non_abs",822822.533721486
-"52","stim_non_abs",-554207.820146107
-"53","stim_non_abs",423371.023494861
-"54","best2_non_abs",-203255.114532275
-"55","best2_non_abs",504416.573197783
-"56","best2_non_abs",332263.597300308
-"57","best2_non_abs",199890.724930291
-"58","best2_non_abs",64895.9534304881
-"59","best2_non_abs",-405753.088834734
-"60","best2_non_abs",-9741.99701277342
-"61","best2_non_abs",-467988.578746341
-"62","best2_non_abs",442830.943569411
-"63","best2_non_abs",-416644.459085872
-"64","best2_non_abs",913871.969653167
-"65","best2_non_abs",-37456.3011299532
-"66","best2_non_abs",-158817.122648734
-"67","SERCA_non_abs",307417.876430805
-"68","SERCA_non_abs",266491.919990883
-"69","SERCA_non_abs",184981.208816905
-"70","SERCA_non_abs",144715.331899555
-"71","SERCA_non_abs",0
-"72","SERCA_non_abs",0
-"73","SERCA_non_abs",0
-"74","SERCA_non_abs",0
-"75","SERCA-mCherry_non_abs",404936.074302405
-"76","SERCA-mCherry_non_abs",293612.008278877
-"77","SERCA-mCherry_non_abs",143784.230787244
-"78","SERCA-mCherry_non_abs",299563.172375277
-"79","SERCA-mCherry_non_abs",200457.217518301
-"80","SERCA-mCherry_non_abs",0
+"1","wt_non_abs",81232.5202247665
+"2","wt_non_abs",88326.3236337954
+"3","wt_non_abs",97026.3137574431
+"4","wt_non_abs",55785.6259380976
+"5","wt_non_abs",45635.6115252409
+"6","wt_non_abs",52285.7011031737
+"7","wt_non_abs",104575.033963315
+"8","wt_non_abs",84198.8304400626
+"9","wt_non_abs",65979.1010621912
+"10","wt_non_abs",33384.6318111674
+"11","wt_non_abs",51336.3031925827
+"12","wt_non_abs",48156.7063909684
+"13","wt_non_abs",35143.7117381384
+"14","old mCherry_non_abs",65347.4273106345
+"15","old mCherry_non_abs",77189.1651100625
+"16","old mCherry_non_abs",0
+"17","old mCherry_non_abs",0
+"18","old mCherry_non_abs",0
+"19","old mCherry_non_abs",0
+"20","old mCherry_non_abs",0
+"21","old mCherry_non_abs",0
+"22","old mCherry_non_abs",0
+"23","old mCherry_non_abs",0
+"24","old mCherry_non_abs",0
+"25","new mCherry_non_abs",39340.0514695797
+"26","new mCherry_non_abs",28324.4223781014
+"27","new mCherry_non_abs",35994.6916468578
+"28","new mCherry_non_abs",30169.1284127769
+"29","new mCherry_non_abs",34681.9308266478
+"30","new mCherry_non_abs",38897.155558094
+"31","new mCherry_non_abs",25488.6143175477
+"32","new mCherry_non_abs",29095.2556068133
+"33","old orai_non_abs",32761.7559620711
+"34","old orai_non_abs",0
+"35","old orai_non_abs",0
+"36","old orai_non_abs",0
+"37","old orai_non_abs",0
+"38","new orai_non_abs",14526.683242955
+"39","new orai_non_abs",19019.6322165022
+"40","new orai_non_abs",13605.442703226
+"41","new orai_non_abs",14178.1671561365
+"42","new orai_non_abs",10350.5369637893
+"43","new orai_non_abs",10814.2106272102
+"44","stim_non_abs",45169.4229058594
+"45","stim_non_abs",78849.3082107557
+"46","stim_non_abs",86620.3514247605
+"47","stim_non_abs",106589.049564483
+"48","stim_non_abs",126006.258437324
+"49","stim_non_abs",82691.2718773346
+"50","stim_non_abs",11705.154408361
+"51","stim_non_abs",0
+"52","stim_non_abs",0
+"53","stim_non_abs",0
+"54","best2_non_abs",68803.5648698914
+"55","best2_non_abs",65275.4542086977
+"56","best2_non_abs",90071.062621258
+"57","best2_non_abs",38900.8606802388
+"58","best2_non_abs",76057.3983627756
+"59","best2_non_abs",0
+"60","best2_non_abs",0
+"61","best2_non_abs",0
+"62","best2_non_abs",0
+"63","best2_non_abs",0
+"64","best2_non_abs",0
+"65","best2_non_abs",0
+"66","best2_non_abs",0
+"67","SERCA_non_abs",325890.895550251
+"68","SERCA_non_abs",269439.449558183
+"69","SERCA_non_abs",220852.027520218
+"70","SERCA_non_abs",174035.613346761
+"71","SERCA_non_abs",218303.37145516
+"72","SERCA_non_abs",343519.413172947
+"73","SERCA_non_abs",159839.089074303
+"74","SERCA_non_abs",253413.998931688
+"75","SERCA-mCherry_non_abs",371943.293787142
+"76","SERCA-mCherry_non_abs",277467.063538199
+"77","SERCA-mCherry_non_abs",135901.855090305
+"78","SERCA-mCherry_non_abs",257637.68095713
+"79","SERCA-mCherry_non_abs",198714.493026416
+"80","SERCA-mCherry_non_abs",278463.176669694

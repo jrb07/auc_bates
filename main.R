@@ -24,6 +24,8 @@ if(!require('tidyr'))
   install.packages('tidyr')
   library('tidyr')
 }
+#set debug to TRUE if you want to render and save plots for every wing disc
+debug <- TRUE
 
 #sheet0 will be our main excel sheet
 sheet0 = read_csv("in/clean_data_.csv")
@@ -37,7 +39,7 @@ new_orai_df <- sheet0[ , grepl("new_orai",names(sheet0))]
 stim_df <- sheet0[ , grepl("stim",names(sheet0))]
 wt_df <- sheet0[ , grepl("WT",names(sheet0))]
 best2_df <- sheet0[ , grepl("Best2",names(sheet0))]
-serca_df <- sheet0[ , grepl("SERCA_",names(sheet0))]
+serca_df <- sheet0[ , grepl("SERCA_gray_avg",names(sheet0))]
 sercamCherry_df <- sheet0[ , grepl("SERCAmCherry_",names(sheet0))]
 
 #assign cutoff values for the 1st peak which will be the start of peak 2
@@ -129,8 +131,11 @@ peak2_sercamCherry_aucs_non_abs <- rep(0, ncol(sercamCherry_df))
 #we will do an auc calculation for distance vs each wing disc set of values
 for(i in 1:ncol(old_mCherry_df))
 {
-  x <- position_df$POSITION
   y <- old_mCherry_df[, i, drop=TRUE] #drop to make a single column
+  y <- na.omit(y) # removes any na values from our y array
+  # slices the position array to match the length of y and create the x array
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)] 
+  
   old_mCherry_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_old_mCherry_aucs[i] <- auc(x, y, from = 0, to = old_mCherry_peak1_cutoff, 
@@ -147,11 +152,20 @@ for(i in 1:ncol(old_mCherry_df))
   peak2_old_mCherry_aucs_non_abs[i] <- auc(x, y, from = old_mCherry_peak1_cutoff, 
                                    type = "spline", subdivisions = 1000,
                                    absolutearea = FALSE)
+  #plot avgs of every wing disc line scan if debugging
+  if(debug)
+  {
+    plot(x, y)
+    plot_name <- paste('out/plots/old_mCherry_wing_disc_', i, ".png", sep="")
+    dev.print(png, plot_name, width=800, height=800) 
+  }
 }
 for(i in 1:ncol(new_mCherry_df))
 {
-  x <- position_df$POSITION #our x values are the position in distance values
-  y <- new_mCherry_df[, i, drop=TRUE] #drop transforms the data into 1 column
+  y <- new_mCherry_df[, i, drop=TRUE]
+  y <- na.omit(y)
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)] 
+  
   new_mCherry_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_new_mCherry_aucs[i] <- auc(x, y, from = 0, to = new_mCherry_peak1_cutoff, 
@@ -168,11 +182,19 @@ for(i in 1:ncol(new_mCherry_df))
   peak2_new_mCherry_aucs_non_abs[i] <- auc(x, y, from = new_mCherry_peak1_cutoff, 
                                    type = "spline", subdivisions = 1000,
                                    absolutearea = FALSE)
+  if(debug)
+  {
+  plot(x, y)
+  plot_name <- paste('out/plots/new_mCherry_wing_disc_', i, ".png", sep="")
+  dev.print(png, plot_name, width=800, height=800) 
+  }
 }
 for(i in 1:ncol(old_orai_df))
 {
-  x <- position_df$POSITION
   y <- old_orai_df[, i, drop=TRUE]
+  y <- na.omit(y)
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
+  
   old_orai_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_old_orai_aucs[i] <- auc(x, y, from = 0, to = old_orai_peak1_cutoff , 
@@ -189,11 +211,19 @@ for(i in 1:ncol(old_orai_df))
   peak2_old_orai_aucs_non_abs[i] <- auc(x, y, from = old_orai_peak1_cutoff, 
                                 type = "spline", subdivisions = 1000,
                                 absolutearea = FALSE)
+  if(debug)
+  {
+    plot(x, y)
+    plot_name <- paste('out/plots/old_orai_wing_disc_', i, ".png", sep="")
+    dev.print(png, plot_name, width=800, height=800)  
+  }
 }
 for(i in 1:ncol(new_orai_df))
 {
-  x <- position_df$POSITION
   y <- new_orai_df[, i, drop=TRUE]
+  y <- na.omit(y)
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
+  
   new_orai_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_new_orai_aucs[i] <- auc(x, y, from = 0, to = new_orai_peak1_cutoff , 
@@ -210,11 +240,19 @@ for(i in 1:ncol(new_orai_df))
   peak2_new_orai_aucs_non_abs[i] <- auc(x, y, from = new_orai_peak1_cutoff, 
                                 type = "spline", subdivisions = 1000,
                                 absolutearea = FALSE)
+  if(debug)
+  {
+    plot(x, y)
+    plot_name <- paste('out/plots/orai_wing_disc_', i, ".png", sep="")
+    dev.print(png, plot_name, width=800, height=800) 
+  }
 }
 for(i in 1:ncol(stim_df))
 {
-  x <- position_df$POSITION
   y <- stim_df[, i, drop=TRUE]
+  y <- na.omit(y)
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
+  
   stim_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_stim_aucs[i] <- auc(x, y, from = 0, to = stim_peak1_cutoff , 
@@ -231,11 +269,19 @@ for(i in 1:ncol(stim_df))
   peak2_stim_aucs_non_abs[i] <- auc(x, y, from = stim_peak1_cutoff, 
                             type = "spline", subdivisions = 1000,
                             absolutearea = FALSE)
+  if(debug)
+  {
+    plot(x, y)
+    plot_name <- paste('out/plots/stim_wing_disc_', i, ".png", sep="")
+    dev.print(png, plot_name, width=800, height=800) 
+  }
 }
 for(i in 1:ncol(best2_df))
 {
-  x <- position_df$POSITION
   y <- best2_df[, i, drop=TRUE]
+  y <- na.omit(y)
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
+  
   best2_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_best2_aucs[i] <- auc(x, y, from = 0, to = best2_peak1_cutoff, 
@@ -252,11 +298,19 @@ for(i in 1:ncol(best2_df))
   peak2_best2_aucs_non_abs[i] <- auc(x, y, from = best2_peak1_cutoff, 
                              type = "spline", subdivisions = 1000,
                              absolutearea = FALSE)
+  if(debug)
+  {
+    plot(x, y)
+    plot_name <- paste('out/plots/best2_wing_disc_', i, ".png", sep="")
+    dev.print(png, plot_name, width=800, height=800) 
+  }
 }
 for(i in 1:ncol(wt_df))
 {
-  x <- position_df$POSITION
   y <- wt_df[, i, drop=TRUE]
+  y <- na.omit(y)
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
+  
   wt_aucs[i] <- auc(x, y, from = 0, 
                     type = "spline", subdivisions = 1000,
                     absolutearea = TRUE)
@@ -275,11 +329,19 @@ for(i in 1:ncol(wt_df))
   peak2_wt_aucs_non_abs[i] <- auc(x, y, from = wt_peak1_cutoff, 
                           type = "spline", subdivisions = 1000,
                           absolutearea = FALSE)
+  if(debug)
+  {
+    plot(x, y)
+    plot_name <- paste('out/plots/wt_wing_disc_', i, ".png", sep="")
+    dev.print(png, plot_name, width=800, height=800) 
+  }
 }
 for(i in 1:ncol(serca_df))
 {
-  x <- position_df$POSITION
-  y <- serca_df[, i, drop=TRUE]
+  y <- serca_df[, i, drop = TRUE]
+  y <- na.omit(y)
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
+  
   serca_aucs[i] <- auc(x, y, from = 0, 
                     type = "spline", subdivisions = 1000,
                     absolutearea = TRUE)
@@ -298,11 +360,19 @@ for(i in 1:ncol(serca_df))
   peak2_serca_aucs_non_abs[i] <- auc(x, y, from = serca_peak1_cutoff, 
                              type = "spline", subdivisions = 1000,
                              absolutearea = FALSE)
+  if(debug)
+  {
+    plot(x, y)
+    plot_name <- paste('out/plots/serca_wing_disc_', i, ".png", sep="")
+    dev.print(png, plot_name, width=800, height=800) 
+  }
 }
 for(i in 1:ncol(sercamCherry_df))
 {
-  x <- position_df$POSITION
   y <- sercamCherry_df[, i, drop=TRUE]
+  y <- na.omit(y)
+  x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
+  
   sercamCherry_aucs[i] <- auc(x, y, from = 0, 
                        type = "spline", subdivisions = 1000,
                        absolutearea = TRUE)
@@ -321,6 +391,12 @@ for(i in 1:ncol(sercamCherry_df))
   peak2_sercamCherry_aucs_non_abs[i] <- auc(x, y, from = sercamCherry_peak1_cutoff, 
                                     type = "spline", subdivisions = 1000,
                                     absolutearea = FALSE)
+  if(debug)
+  {
+    plot(x, y)
+    plot_name <- paste('out/plots/sercamCherry_wing_disc_', i, ".png", sep="")
+    dev.print(png, plot_name, width=800, height=800) 
+  }
 }
 
 #ggplots
