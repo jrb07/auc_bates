@@ -45,8 +45,8 @@ stim_peak1_cutoff <- 50
 old_mCherry_peak1_cutoff <- 50
 old_orai_peak1_cutoff <- 50
 
-serca_peak1_cutoff <- 70
-sercamCherry_peak1_cutoff <- 70
+serca_peak1_cutoff <- 85
+sercamCherry_peak1_cutoff <- 85
 
 best2_peak1_cutoff <- 68
 wt_peak1_cutoff <- 68
@@ -70,11 +70,63 @@ new_mCherry_peak1_cutoff <- 48
 # this allows the user to specify areas on the graph to calculate auc
 #auc(x,y, from = 0.1, to = 2, type = "spline")
 
-#create an empty vector that is as long as the dataset dataframe
+#create empty vectors that are as long as each dataset dataframe
 old_mCherry_aucs <- rep(0, ncol(old_mCherry_df))
 peak1_old_mCherry_aucs <- rep(0, ncol(old_mCherry_df))
 peak2_old_mCherry_aucs <- rep(0, ncol(old_mCherry_df))
-#we will do an auc calculation for distance vs each dataset
+old_mCherry_aucs_non_abs <- rep(0, ncol(old_mCherry_df))
+peak2_old_mCherry_aucs_non_abs <- rep(0, ncol(old_mCherry_df))
+peak1_old_mCherry_aucs_non_abs <- rep(0, ncol(old_mCherry_df))
+new_mCherry_aucs <- rep(0, ncol(new_mCherry_df))
+peak1_new_mCherry_aucs <- rep(0, ncol(new_mCherry_df))
+peak2_new_mCherry_aucs <- rep(0, ncol(new_mCherry_df))
+new_mCherry_aucs_non_abs <- rep(0, ncol(new_mCherry_df))
+peak1_new_mCherry_aucs_non_abs <- rep(0, ncol(new_mCherry_df))
+peak2_new_mCherry_aucs_non_abs <- rep(0, ncol(new_mCherry_df))
+old_orai_aucs <- rep(0, ncol(old_orai_df))
+peak1_old_orai_aucs <- rep(0, ncol(old_orai_df))
+peak2_old_orai_aucs <- rep(0, ncol(old_orai_df))
+old_orai_aucs_non_abs <- rep(0, ncol(old_orai_df))
+peak1_old_orai_aucs_non_abs <- rep(0, ncol(old_orai_df))
+peak2_old_orai_aucs_non_abs <- rep(0, ncol(old_orai_df))
+new_orai_aucs <- rep(0, ncol(new_orai_df))
+peak1_new_orai_aucs <- rep(0, ncol(new_orai_df))
+peak2_new_orai_aucs <- rep(0, ncol(new_orai_df))
+new_orai_aucs_non_abs <- rep(0, ncol(new_orai_df))
+peak1_new_orai_aucs_non_abs <- rep(0, ncol(new_orai_df))
+peak2_new_orai_aucs_non_abs <- rep(0, ncol(new_orai_df))
+stim_aucs <- rep(0, ncol(stim_df))
+peak1_stim_aucs <- rep(0, ncol(stim_df))
+peak2_stim_aucs <- rep(0, ncol(stim_df))
+stim_aucs_non_abs <- rep(0, ncol(stim_df))
+peak1_stim_aucs_non_abs <- rep(0, ncol(stim_df))
+peak2_stim_aucs_non_abs <- rep(0, ncol(stim_df))
+best2_aucs <- rep(0, ncol(best2_df))
+peak1_best2_aucs <- rep(0, ncol(best2_df))
+peak2_best2_aucs <- rep(0, ncol(best2_df))
+best2_aucs_non_abs <- rep(0, ncol(best2_df))
+peak1_best2_aucs_non_abs <- rep(0, ncol(best2_df))
+peak2_best2_aucs_non_abs <- rep(0, ncol(best2_df))
+wt_aucs <- rep(0, ncol(wt_df))
+peak1_wt_aucs <- rep(0, ncol(wt_df))
+peak2_wt_aucs <- rep(0, ncol(wt_df))
+wt_aucs_non_abs <- rep(0, ncol(wt_df))
+peak1_wt_aucs_non_abs <- rep(0, ncol(wt_df))
+peak2_wt_aucs_non_abs <- rep(0, ncol(wt_df))
+serca_aucs <- rep(0, ncol(serca_df))
+peak1_serca_aucs <- rep(0, ncol(serca_df))
+peak2_serca_aucs <- rep(0, ncol(serca_df))
+serca_aucs_non_abs <- rep(0, ncol(serca_df))
+peak1_serca_aucs_non_abs <- rep(0, ncol(serca_df))
+peak2_serca_aucs_non_abs <- rep(0, ncol(serca_df))
+sercamCherry_aucs <- rep(0, ncol(sercamCherry_df))
+peak1_sercamCherry_aucs <- rep(0, ncol(sercamCherry_df))
+peak2_sercamCherry_aucs <- rep(0, ncol(sercamCherry_df))
+sercamCherry_aucs_non_abs <- rep(0, ncol(sercamCherry_df))
+peak1_sercamCherry_aucs_non_abs <- rep(0, ncol(sercamCherry_df))
+peak2_sercamCherry_aucs_non_abs <- rep(0, ncol(sercamCherry_df))
+
+#we will do an auc calculation for distance vs each wing disc set of values
 for(i in 1:ncol(old_mCherry_df))
 {
   x <- position_df$POSITION
@@ -87,14 +139,19 @@ for(i in 1:ncol(old_mCherry_df))
   peak2_old_mCherry_aucs[i] <- auc(x, y, from = old_mCherry_peak1_cutoff, 
                                           type = "spline", subdivisions = 1000,
                                           absolutearea = TRUE)
+  old_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+                                     subdivisions = 1000, absolutearea = FALSE)
+  peak1_old_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, to = old_mCherry_peak1_cutoff, 
+                                   type = "spline", subdivisions = 1000,
+                                   absolutearea = FALSE)
+  peak2_old_mCherry_aucs_non_abs[i] <- auc(x, y, from = old_mCherry_peak1_cutoff, 
+                                   type = "spline", subdivisions = 1000,
+                                   absolutearea = FALSE)
 }
-new_mCherry_aucs <- rep(0, ncol(new_mCherry_df))
-peak1_new_mCherry_aucs <- rep(0, ncol(new_mCherry_df))
-peak2_new_mCherry_aucs <- rep(0, ncol(new_mCherry_df))
 for(i in 1:ncol(new_mCherry_df))
 {
-  x <- position_df$POSITION
-  y <- new_mCherry_df[, i, drop=TRUE] #drop to make a single column
+  x <- position_df$POSITION #our x values are the position in distance values
+  y <- new_mCherry_df[, i, drop=TRUE] #drop transforms the data into 1 column
   new_mCherry_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_new_mCherry_aucs[i] <- auc(x, y, from = 0, to = new_mCherry_peak1_cutoff, 
@@ -103,14 +160,19 @@ for(i in 1:ncol(new_mCherry_df))
   peak2_new_mCherry_aucs[i] <- auc(x, y, from = new_mCherry_peak1_cutoff, 
                                        type = "spline", subdivisions = 1000,
                                        absolutearea = TRUE)
+  new_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+                             subdivisions = 1000, absolutearea = FALSE)
+  peak1_new_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, to = new_mCherry_peak1_cutoff, 
+                                   type = "spline", subdivisions = 1000,
+                                   absolutearea = FALSE)
+  peak2_new_mCherry_aucs_non_abs[i] <- auc(x, y, from = new_mCherry_peak1_cutoff, 
+                                   type = "spline", subdivisions = 1000,
+                                   absolutearea = FALSE)
 }
-old_orai_aucs <- rep(0, ncol(old_orai_df))
-peak1_old_orai_aucs <- rep(0, ncol(old_orai_df))
-peak2_old_orai_aucs <- rep(0, ncol(old_orai_df))
 for(i in 1:ncol(old_orai_df))
 {
   x <- position_df$POSITION
-  y <- old_orai_df[, i, drop=TRUE] #drop to make a single column
+  y <- old_orai_df[, i, drop=TRUE]
   old_orai_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_old_orai_aucs[i] <- auc(x, y, from = 0, to = old_orai_peak1_cutoff , 
@@ -119,14 +181,19 @@ for(i in 1:ncol(old_orai_df))
   peak2_old_orai_aucs[i] <- auc(x, y, from = old_orai_peak1_cutoff, 
                                        type = "spline", subdivisions = 1000,
                                        absolutearea = TRUE)
+  old_orai_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+                          subdivisions = 1000, absolutearea = FALSE)
+  peak1_old_orai_aucs_non_abs[i] <- auc(x, y, from = 0, to = old_orai_peak1_cutoff , 
+                                type = "spline", subdivisions = 1000,
+                                absolutearea = FALSE)
+  peak2_old_orai_aucs_non_abs[i] <- auc(x, y, from = old_orai_peak1_cutoff, 
+                                type = "spline", subdivisions = 1000,
+                                absolutearea = FALSE)
 }
-new_orai_aucs <- rep(0, ncol(new_orai_df))
-peak1_new_orai_aucs <- rep(0, ncol(new_orai_df))
-peak2_new_orai_aucs <- rep(0, ncol(new_orai_df))
 for(i in 1:ncol(new_orai_df))
 {
   x <- position_df$POSITION
-  y <- new_orai_df[, i, drop=TRUE] #drop to make a single column
+  y <- new_orai_df[, i, drop=TRUE]
   new_orai_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_new_orai_aucs[i] <- auc(x, y, from = 0, to = new_orai_peak1_cutoff , 
@@ -135,14 +202,19 @@ for(i in 1:ncol(new_orai_df))
   peak2_new_orai_aucs[i] <- auc(x, y, from = new_orai_peak1_cutoff, 
                                    type = "spline", subdivisions = 1000,
                                    absolutearea = TRUE)
+  new_orai_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+                          subdivisions = 1000, absolutearea = FALSE)
+  peak1_new_orai_aucs_non_abs[i] <- auc(x, y, from = 0, to = new_orai_peak1_cutoff , 
+                                type = "spline", subdivisions = 1000,
+                                absolutearea = FALSE)
+  peak2_new_orai_aucs_non_abs[i] <- auc(x, y, from = new_orai_peak1_cutoff, 
+                                type = "spline", subdivisions = 1000,
+                                absolutearea = FALSE)
 }
-stim_aucs <- rep(0, ncol(stim_df))
-peak1_stim_aucs <- rep(0, ncol(stim_df))
-peak2_stim_aucs <- rep(0, ncol(stim_df))
 for(i in 1:ncol(stim_df))
 {
   x <- position_df$POSITION
-  y <- stim_df[, i, drop=TRUE] #drop to make a single column
+  y <- stim_df[, i, drop=TRUE]
   stim_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_stim_aucs[i] <- auc(x, y, from = 0, to = stim_peak1_cutoff , 
@@ -151,14 +223,19 @@ for(i in 1:ncol(stim_df))
   peak2_stim_aucs[i] <- auc(x, y, from = stim_peak1_cutoff, 
                                     type = "spline", subdivisions = 1000,
                                     absolutearea = TRUE)
+  stim_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+                      subdivisions = 1000, absolutearea = FALSE)
+  peak1_stim_aucs_non_abs[i] <- auc(x, y, from = 0, to = stim_peak1_cutoff , 
+                            type = "spline", subdivisions = 1000,
+                            absolutearea = FALSE)
+  peak2_stim_aucs_non_abs[i] <- auc(x, y, from = stim_peak1_cutoff, 
+                            type = "spline", subdivisions = 1000,
+                            absolutearea = FALSE)
 }
-best2_aucs <- rep(0, ncol(best2_df))
-peak1_best2_aucs <- rep(0, ncol(best2_df))
-peak2_best2_aucs <- rep(0, ncol(best2_df))
 for(i in 1:ncol(best2_df))
 {
   x <- position_df$POSITION
-  y <- best2_df[, i, drop=TRUE] #drop to make a single column
+  y <- best2_df[, i, drop=TRUE]
   best2_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_best2_aucs[i] <- auc(x, y, from = 0, to = best2_peak1_cutoff, 
@@ -167,14 +244,19 @@ for(i in 1:ncol(best2_df))
   peak2_best2_aucs[i] <- auc(x, y, from = best2_peak1_cutoff, 
                                  type = "spline", subdivisions = 1000,
                                  absolutearea = TRUE)
+  best2_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+                       subdivisions = 1000, absolutearea = FALSE)
+  peak1_best2_aucs_non_abs[i] <- auc(x, y, from = 0, to = best2_peak1_cutoff, 
+                             type = "spline", subdivisions = 1000,
+                             absolutearea = FALSE)
+  peak2_best2_aucs_non_abs[i] <- auc(x, y, from = best2_peak1_cutoff, 
+                             type = "spline", subdivisions = 1000,
+                             absolutearea = FALSE)
 }
-wt_aucs <- rep(0, ncol(wt_df))
-peak1_wt_aucs <- rep(0, ncol(wt_df))
-peak2_wt_aucs <- rep(0, ncol(wt_df))
 for(i in 1:ncol(wt_df))
 {
   x <- position_df$POSITION
-  y <- wt_df[, i, drop=TRUE] #drop to make a single column
+  y <- wt_df[, i, drop=TRUE]
   wt_aucs[i] <- auc(x, y, from = 0, 
                     type = "spline", subdivisions = 1000,
                     absolutearea = TRUE)
@@ -184,14 +266,20 @@ for(i in 1:ncol(wt_df))
   peak2_wt_aucs[i] <- auc(x, y, from = wt_peak1_cutoff, 
                                  type = "spline", subdivisions = 1000,
                                  absolutearea = TRUE)
+  wt_aucs_non_abs[i] <- auc(x, y, from = 0, 
+                    type = "spline", subdivisions = 1000,
+                    absolutearea = FALSE)
+  peak1_wt_aucs_non_abs[i] <- auc(x, y, from = 0, to = wt_peak1_cutoff, 
+                          type = "spline", subdivisions = 1000,
+                          absolutearea = FALSE)
+  peak2_wt_aucs_non_abs[i] <- auc(x, y, from = wt_peak1_cutoff, 
+                          type = "spline", subdivisions = 1000,
+                          absolutearea = FALSE)
 }
-serca_aucs <- rep(0, ncol(serca_df))
-peak1_serca_aucs <- rep(0, ncol(serca_df))
-peak2_serca_aucs <- rep(0, ncol(serca_df))
 for(i in 1:ncol(serca_df))
 {
   x <- position_df$POSITION
-  y <- serca_df[, i, drop=TRUE] #drop to make a single column
+  y <- serca_df[, i, drop=TRUE]
   serca_aucs[i] <- auc(x, y, from = 0, 
                     type = "spline", subdivisions = 1000,
                     absolutearea = TRUE)
@@ -201,14 +289,20 @@ for(i in 1:ncol(serca_df))
   peak2_serca_aucs[i] <- auc(x, y, from = serca_peak1_cutoff, 
                                  type = "spline", subdivisions = 1000,
                                  absolutearea = TRUE)
+  serca_aucs_non_abs[i] <- auc(x, y, from = 0, 
+                       type = "spline", subdivisions = 1000,
+                       absolutearea = FALSE)
+  peak1_serca_aucs_non_abs[i] <- auc(x, y, from = 0, to = serca_peak1_cutoff , 
+                             type = "spline", subdivisions = 1000,
+                             absolutearea = FALSE)
+  peak2_serca_aucs_non_abs[i] <- auc(x, y, from = serca_peak1_cutoff, 
+                             type = "spline", subdivisions = 1000,
+                             absolutearea = FALSE)
 }
-sercamCherry_aucs <- rep(0, ncol(sercamCherry_df))
-peak1_sercamCherry_aucs <- rep(0, ncol(sercamCherry_df))
-peak2_sercamCherry_aucs <- rep(0, ncol(sercamCherry_df))
 for(i in 1:ncol(sercamCherry_df))
 {
   x <- position_df$POSITION
-  y <- sercamCherry_df[, i, drop=TRUE] #drop to make a single column
+  y <- sercamCherry_df[, i, drop=TRUE]
   sercamCherry_aucs[i] <- auc(x, y, from = 0, 
                        type = "spline", subdivisions = 1000,
                        absolutearea = TRUE)
@@ -218,7 +312,17 @@ for(i in 1:ncol(sercamCherry_df))
   peak2_sercamCherry_aucs[i] <- auc(x, y, from = sercamCherry_peak1_cutoff, 
                                     type = "spline", subdivisions = 1000,
                                     absolutearea = TRUE)
+  sercamCherry_aucs_non_abs[i] <- auc(x, y, from = 0, 
+                              type = "spline", subdivisions = 1000,
+                              absolutearea = FALSE)
+  peak1_sercamCherry_aucs_non_abs[i] <- auc(x, y, from = 0, to = sercamCherry_peak1_cutoff , 
+                                    type = "spline", subdivisions = 1000,
+                                    absolutearea = FALSE)
+  peak2_sercamCherry_aucs_non_abs[i] <- auc(x, y, from = sercamCherry_peak1_cutoff, 
+                                    type = "spline", subdivisions = 1000,
+                                    absolutearea = FALSE)
 }
+
 #ggplots
 #create an Identifier (x label) array that will mirror the AUC values array
 Identifier<-c(rep("wt", length(wt_aucs)),
@@ -230,13 +334,26 @@ Identifier<-c(rep("wt", length(wt_aucs)),
               rep("best2", length(best2_aucs)),
               rep("SERCA", length(serca_aucs)),
               rep("SERCA-mCherry", length(sercamCherry_aucs)))
+Identifier_non_abs<-c(rep("wt_non_abs", length(wt_aucs_non_abs)),
+              rep("old mCherry_non_abs", length(old_mCherry_aucs_non_abs)),
+              rep("new mCherry_non_abs", length(new_mCherry_aucs_non_abs)),
+              rep("old orai_non_abs", length(old_orai_aucs_non_abs)),
+              rep("new orai_non_abs", length(new_orai_aucs_non_abs)),
+              rep("stim_non_abs", length(stim_aucs_non_abs)),
+              rep("best2_non_abs", length(best2_aucs_non_abs)),
+              rep("SERCA_non_abs", length(serca_aucs_non_abs)),
+              rep("SERCA-mCherry_non_abs", length(sercamCherry_aucs_non_abs)))
 
 AUC_Values <- c(wt_aucs, old_mCherry_aucs, new_mCherry_aucs,
                 old_orai_aucs, new_orai_aucs, stim_aucs, best2_aucs,
                 serca_aucs, sercamCherry_aucs)
+AUC_Values_non_abs <- c(wt_aucs_non_abs, old_mCherry_aucs_non_abs, new_mCherry_aucs_non_abs,
+                old_orai_aucs_non_abs, new_orai_aucs_non_abs, stim_aucs_non_abs, best2_aucs_non_abs,
+                serca_aucs_non_abs, sercamCherry_aucs_non_abs)
 # all distances in microns plot
-#create a dataframe that will hold both arrays and be saved as a csv file
+#create a dataframe that will hold two arrays and be saved as the out csv file
 dotplot_df = data.frame(Identifier, AUC_Values)
+dotplot_df_non_abs = data.frame(Identifier_non_abs, AUC_Values_non_abs)
 
 j <- ggplot() + 
   geom_dotplot(data=dotplot_df, 
@@ -252,6 +369,7 @@ print(j)
 #save the AUC dot plot in the current directory
 ggsave(file="out/AUC_gray_values_dotplot.png", plot=j,
        width=300, height=100, units="mm")
+
 # 0 to 60 distance in microns plot
 #create an Identifier (x label) array that will mirror the AUC values array
 Identifier_peak1 <-c(rep("wt", length(peak1_wt_aucs)),
@@ -263,14 +381,29 @@ Identifier_peak1 <-c(rep("wt", length(peak1_wt_aucs)),
                        rep("best2", length(peak1_best2_aucs)),
                        rep("SERCA", length(peak1_serca_aucs)),
                        rep("SERCA-mCherry", length(peak1_sercamCherry_aucs)))
+Identifier_peak1_non_abs <-c(rep("wt_non_abs", length(peak1_wt_aucs_non_abs)),
+                     rep("old mCherry_non_abs", length(peak1_old_mCherry_aucs_non_abs)),
+                     rep("new mCherry_non_abs", length(peak1_new_mCherry_aucs_non_abs)),
+                     rep("old orai_non_abs", length(peak1_old_orai_aucs_non_abs)),
+                     rep("new orai_non_abs", length(peak1_new_orai_aucs_non_abs)),
+                     rep("stim_non_abs", length(peak1_stim_aucs_non_abs)),
+                     rep("best2_non_abs", length(peak1_best2_aucs_non_abs)),
+                     rep("SERCA_non_abs", length(peak1_serca_aucs_non_abs)),
+                     rep("SERCA-mCherry_non_abs", length(peak1_sercamCherry_aucs_non_abs)))
 
 AUC_Values_peak1 <- c(peak1_wt_aucs, peak1_old_mCherry_aucs,
                         peak1_new_mCherry_aucs, peak1_old_orai_aucs,
                         peak1_new_orai_aucs, peak1_stim_aucs,
                         peak1_best2_aucs,
                         peak1_serca_aucs, peak1_sercamCherry_aucs)
+AUC_Values_peak1_non_abs <- c(peak1_wt_aucs_non_abs, peak1_old_mCherry_aucs_non_abs,
+                      peak1_new_mCherry_aucs_non_abs, peak1_old_orai_aucs_non_abs,
+                      peak1_new_orai_aucs_non_abs, peak1_stim_aucs_non_abs,
+                      peak1_best2_aucs_non_abs,
+                      peak1_serca_aucs_non_abs, peak1_sercamCherry_aucs_non_abs)
 #create a dataframe that will hold both arrays and be saved as a csv file
 peak1_dotplot_df = data.frame(Identifier_peak1, AUC_Values_peak1)
+peak1_dotplot_df_non_abs = data.frame(Identifier_peak1_non_abs, AUC_Values_peak1_non_abs)
 
 r <- ggplot() + 
   geom_dotplot(data=peak1_dotplot_df, 
@@ -299,14 +432,29 @@ Identifier_peak2 <-c(rep("wt", length(peak2_wt_aucs)),
                        rep("best2", length(peak2_best2_aucs)),
                        rep("SERCA", length(peak2_serca_aucs)),
                        rep("SERCA-mCherry", length(peak2_sercamCherry_aucs)))
+Identifier_peak2_non_abs <-c(rep("wt_non_abs", length(peak2_wt_aucs_non_abs)),
+                     rep("old mCherry_non_abs", length(peak2_old_mCherry_aucs_non_abs)),
+                     rep("new mCherry_non_abs", length(peak2_new_mCherry_aucs_non_abs)),
+                     rep("old orai_non_abs", length(peak2_old_orai_aucs_non_abs)),
+                     rep("new orai_non_abs", length(peak2_new_orai_aucs_non_abs)),
+                     rep("stim_non_abs", length(peak2_stim_aucs_non_abs)),
+                     rep("best2_non_abs", length(peak2_best2_aucs_non_abs)),
+                     rep("SERCA_non_abs", length(peak2_serca_aucs_non_abs)),
+                     rep("SERCA-mCherry_non_abs", length(peak2_sercamCherry_aucs_non_abs)))
 
 AUC_Values_peak2 <- c(peak2_wt_aucs, peak2_old_mCherry_aucs,
                           peak2_new_mCherry_aucs, peak2_old_orai_aucs,
                           peak2_new_orai_aucs, peak2_stim_aucs,
                           peak2_best2_aucs,
                           peak2_serca_aucs, peak2_sercamCherry_aucs)
+AUC_Values_peak2_non_abs <- c(peak2_wt_aucs_non_abs, peak2_old_mCherry_aucs_non_abs,
+                      peak2_new_mCherry_aucs_non_abs, peak2_old_orai_aucs_non_abs,
+                      peak2_new_orai_aucs_non_abs, peak2_stim_aucs_non_abs,
+                      peak2_best2_aucs_non_abs,
+                      peak2_serca_aucs_non_abs, peak2_sercamCherry_aucs_non_abs)
 #create a dataframe that will hold both arrays and be saved as a csv file
 peak2_dotplot_df = data.frame(Identifier_peak2, AUC_Values_peak2)
+peak2_dotplot_df_non_abs = data.frame(Identifier_peak2_non_abs, AUC_Values_peak2_non_abs)
 
 b <- ggplot() + 
   geom_dotplot(data=peak2_dotplot_df, 
@@ -328,6 +476,9 @@ ggsave(file="out/peak2_AUC_gray_values_dotplot.png", plot=b,
 write.csv(dotplot_df, file = "out/total_distance_auc_out.csv")
 write.csv(peak1_dotplot_df, file = "out/peak1_distance_auc_out.csv")
 write.csv(peak2_dotplot_df, file = "out/peak2_distance_auc_out.csv")
+write.csv(dotplot_df_non_abs, file = "out/total_distance_auc_out_non_abs.csv")
+write.csv(peak1_dotplot_df_non_abs, file = "out/peak1_distance_auc_out_non_abs.csv")
+write.csv(peak2_dotplot_df_non_abs, file = "out/peak2_distance_auc_out_non_abs.csv")
 
 #generate citations
 citation() # R citation
