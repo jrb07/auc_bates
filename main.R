@@ -1,3 +1,4 @@
+
 #Install and load packages using the if require template to reduce overhead
 if(!require('MESS')) 
 {
@@ -27,10 +28,10 @@ if(!require('tidyr'))
 #set debug to TRUE if you want to render and save plots for every wing disc
 debug <- TRUE
 
-#sheet0 will be our main excel sheet
+#load in the input data as sheet0 which will be our main excel sheet
 sheet0 = read_csv("in/clean_data_.csv")
 
-#Use grepl to grab all column data that matches a search string to create dfs
+#Use grepl to create dfs by grabbing all column data matching a search string 
 position_df <- sheet0[ , grepl("POSITION", names(sheet0))]
 old_mCherry_df <- sheet0[ , grepl("old_mCherry",names(sheet0))]
 new_mCherry_df <- sheet0[ , grepl("new_mCherry",names(sheet0))]
@@ -39,7 +40,7 @@ new_orai_df <- sheet0[ , grepl("new_orai",names(sheet0))]
 stim_df <- sheet0[ , grepl("stim",names(sheet0))]
 wt_df <- sheet0[ , grepl("WT",names(sheet0))]
 best2_df <- sheet0[ , grepl("Best2",names(sheet0))]
-serca_df <- sheet0[ , grepl("SERCA_gray_avg",names(sheet0))]
+serca_df <- sheet0[ , grepl("SERCA_",names(sheet0))]
 sercamCherry_df <- sheet0[ , grepl("SERCAmCherry_",names(sheet0))]
 
 #assign cutoff values for the 1st peak which will be the start of peak 2
@@ -197,7 +198,7 @@ for(i in 1:ncol(old_orai_df))
   
   old_orai_aucs[i] <- auc(x, y, from = 0, type = "spline",
                              subdivisions = 1000, absolutearea = TRUE)
-  peak1_old_orai_aucs[i] <- auc(x, y, from = 0, to = old_orai_peak1_cutoff , 
+  peak1_old_orai_aucs[i] <- auc(x, y, from = 0, to = old_orai_peak1_cutoff, 
                                      type = "spline", subdivisions = 1000,
                                      absolutearea = TRUE)
   peak2_old_orai_aucs[i] <- auc(x, y, from = old_orai_peak1_cutoff, 

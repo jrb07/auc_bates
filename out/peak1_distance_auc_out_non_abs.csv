@@ -1,81 +1,81 @@
 "","Identifier_peak1_non_abs","AUC_Values_peak1_non_abs"
-"1","wt_non_abs",38005.8766925187
-"2","wt_non_abs",34973.7079968277
-"3","wt_non_abs",43975.1672353826
-"4","wt_non_abs",24598.9983562459
-"5","wt_non_abs",26424.8201861891
-"6","wt_non_abs",27790.6673605898
-"7","wt_non_abs",54185.9910804239
-"8","wt_non_abs",44957.8004424409
-"9","wt_non_abs",33339.1211166024
-"10","wt_non_abs",21330.6512034913
-"11","wt_non_abs",25378.6609359823
-"12","wt_non_abs",24072.3619602018
-"13","wt_non_abs",16605.2109299044
-"14","old mCherry_non_abs",26942.7031217411
-"15","old mCherry_non_abs",31780.6396908825
-"16","old mCherry_non_abs",0
-"17","old mCherry_non_abs",0
-"18","old mCherry_non_abs",0
-"19","old mCherry_non_abs",0
-"20","old mCherry_non_abs",0
-"21","old mCherry_non_abs",0
-"22","old mCherry_non_abs",0
-"23","old mCherry_non_abs",0
-"24","old mCherry_non_abs",0
-"25","new mCherry_non_abs",6112.74109890829
-"26","new mCherry_non_abs",4076.96140652162
-"27","new mCherry_non_abs",7607.96245109996
-"28","new mCherry_non_abs",5991.34809231788
-"29","new mCherry_non_abs",3735.14820786667
-"30","new mCherry_non_abs",5923.94633733885
-"31","new mCherry_non_abs",3763.00706470736
-"32","new mCherry_non_abs",3901.45426873174
-"33","old orai_non_abs",24206.2723220441
-"34","old orai_non_abs",0
-"35","old orai_non_abs",0
-"36","old orai_non_abs",0
-"37","old orai_non_abs",0
-"38","new orai_non_abs",3771.05121597273
-"39","new orai_non_abs",3675.56942395397
-"40","new orai_non_abs",3417.24870160664
-"41","new orai_non_abs",3475.17295727968
-"42","new orai_non_abs",2834.51929684415
-"43","new orai_non_abs",2508.3547258524
-"44","stim_non_abs",18078.1768726864
-"45","stim_non_abs",33140.7134663856
-"46","stim_non_abs",34437.1287669282
-"47","stim_non_abs",40139.2983908739
-"48","stim_non_abs",50202.8170066047
-"49","stim_non_abs",39593.9455555446
-"50","stim_non_abs",9300.2920667217
-"51","stim_non_abs",0
-"52","stim_non_abs",0
-"53","stim_non_abs",0
-"54","best2_non_abs",30965.7861295807
-"55","best2_non_abs",27326.6261887472
-"56","best2_non_abs",47210.9940889031
-"57","best2_non_abs",18798.9368684555
-"58","best2_non_abs",38167.7983369954
-"59","best2_non_abs",0
-"60","best2_non_abs",0
-"61","best2_non_abs",0
-"62","best2_non_abs",0
-"63","best2_non_abs",0
-"64","best2_non_abs",0
-"65","best2_non_abs",0
-"66","best2_non_abs",0
-"67","SERCA_non_abs",187190.359857184
-"68","SERCA_non_abs",138730.735062871
-"69","SERCA_non_abs",111204.628112185
-"70","SERCA_non_abs",105178.772419213
-"71","SERCA_non_abs",123174.805853546
-"72","SERCA_non_abs",186462.192569087
-"73","SERCA_non_abs",99079.9724948108
-"74","SERCA_non_abs",132583.050123336
-"75","SERCA-mCherry_non_abs",157171.508185674
-"76","SERCA-mCherry_non_abs",150069.317307364
-"77","SERCA-mCherry_non_abs",70884.7340683138
-"78","SERCA-mCherry_non_abs",129924.928224563
-"79","SERCA-mCherry_non_abs",105573.729385678
-"80","SERCA-mCherry_non_abs",157637.513710486
+"1","wt_non_abs",38008.0907361233
+"2","wt_non_abs",34977.3443914097
+"3","wt_non_abs",43975.2483022026
+"4","wt_non_abs",24600.4258702643
+"5","wt_non_abs",26422.8809196035
+"6","wt_non_abs",27794.5110528634
+"7","wt_non_abs",54180.5444398678
+"8","wt_non_abs",44958.7605297357
+"9","wt_non_abs",33342.7318112335
+"10","wt_non_abs",21330.9688832599
+"11","wt_non_abs",25379.8308235683
+"12","wt_non_abs",24073.6798876652
+"13","wt_non_abs",16606.6140936123
+"14","old mCherry_non_abs",26942.564685022
+"15","old mCherry_non_abs",31781.8466625551
+"16","old mCherry_non_abs",54704.8879306167
+"17","old mCherry_non_abs",33537.1774008811
+"18","old mCherry_non_abs",15525.3610301762
+"19","old mCherry_non_abs",35143.7137077092
+"20","old mCherry_non_abs",30255.8062495595
+"21","old mCherry_non_abs",28036.2780973568
+"22","old mCherry_non_abs",36274.8963914097
+"23","old mCherry_non_abs",31723.3228156388
+"24","old mCherry_non_abs",19447.2236011013
+"25","new mCherry_non_abs",6112.75314052863
+"26","new mCherry_non_abs",4077.04498215859
+"27","new mCherry_non_abs",7607.75250088106
+"28","new mCherry_non_abs",5991.17658986784
+"29","new mCherry_non_abs",3735.35479096916
+"30","new mCherry_non_abs",5923.82318524229
+"31","new mCherry_non_abs",3763.5097092511
+"32","new mCherry_non_abs",3901.76078942731
+"33","old orai_non_abs",24208.1142865639
+"34","old orai_non_abs",26545.9406918502
+"35","old orai_non_abs",30506.8282729075
+"36","old orai_non_abs",20021.7933444934
+"37","old orai_non_abs",35036.7558854626
+"38","new orai_non_abs",3771.02990022026
+"39","new orai_non_abs",3675.15076894273
+"40","new orai_non_abs",3416.95308634361
+"41","new orai_non_abs",3476.07939713656
+"42","new orai_non_abs",2834.50452665198
+"43","new orai_non_abs",2508.0924654185
+"44","stim_non_abs",18078.3327535242
+"45","stim_non_abs",33140.0292171806
+"46","stim_non_abs",34438.5244680617
+"47","stim_non_abs",40141.3447552863
+"48","stim_non_abs",50202.2921524229
+"49","stim_non_abs",39594.3214603524
+"50","stim_non_abs",9298.6831345815
+"51","stim_non_abs",38593.195522467
+"52","stim_non_abs",23692.9029420705
+"53","stim_non_abs",45017.4812823789
+"54","best2_non_abs",30963.9423453744
+"55","best2_non_abs",27328.0328072687
+"56","best2_non_abs",47209.7671830397
+"57","best2_non_abs",18798.5955187225
+"58","best2_non_abs",38169.0382601322
+"59","best2_non_abs",32271.1905253304
+"60","best2_non_abs",42072.2202845815
+"61","best2_non_abs",27776.4203667401
+"62","best2_non_abs",20102.9416409692
+"63","best2_non_abs",33071.2425213656
+"64","best2_non_abs",24298.0058870044
+"65","best2_non_abs",28001.8707803965
+"66","best2_non_abs",27053.2326317181
+"67","SERCA_non_abs",187175.543909471
+"68","SERCA_non_abs",138722.05519185
+"69","SERCA_non_abs",111202.394434802
+"70","SERCA_non_abs",105176.725575771
+"71","SERCA_non_abs",123172.225585903
+"72","SERCA_non_abs",186445.478434802
+"73","SERCA_non_abs",99073.8515279736
+"74","SERCA_non_abs",132572.373478855
+"75","SERCA-mCherry_non_abs",157177.681736564
+"76","SERCA-mCherry_non_abs",150055.992320044
+"77","SERCA-mCherry_non_abs",70882.6816515418
+"78","SERCA-mCherry_non_abs",129917.635552643
+"79","SERCA-mCherry_non_abs",105568.847506608
+"80","SERCA-mCherry_non_abs",157633.9119837
