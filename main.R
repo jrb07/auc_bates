@@ -67,11 +67,11 @@ new_mCherry_peak1_cutoff <- 48
 
 
 
-#we will use the MESS packages AUC function to fit a spline to our curve
+#we will use the MESS packages AUC function to fit a linear to our curve
 # https://www.rdocumentation.org/packages/MESS/versions/0.5.9/topics/auc
 # to change the x minimum and maximum use the from and to variables
 # this allows the user to specify areas on the graph to calculate auc
-#auc(x,y, from = 0.1, to = 2, type = "spline")
+#auc(x,y, from = 0.1, to = 2, type = "linear")
 
 #create empty vectors that are as long as each dataset dataframe
 old_mCherry_aucs <- rep(0, ncol(old_mCherry_df))
@@ -137,21 +137,21 @@ for(i in 1:ncol(old_mCherry_df))
   # slices the position array to match the length of y and create the x array
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)] 
   
-  old_mCherry_aucs[i] <- auc(x, y, from = 0, type = "spline",
+  old_mCherry_aucs[i] <- auc(x, y, from = 0, type = "linear",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_old_mCherry_aucs[i] <- auc(x, y, from = 0, to = old_mCherry_peak1_cutoff, 
-                                        type = "spline", subdivisions = 1000,
+                                        type = "linear", subdivisions = 1000,
                                         absolutearea = TRUE)
   peak2_old_mCherry_aucs[i] <- auc(x, y, from = old_mCherry_peak1_cutoff, 
-                                          type = "spline", subdivisions = 1000,
+                                          type = "linear", subdivisions = 1000,
                                           absolutearea = TRUE)
-  old_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+  old_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, type = "linear",
                                      subdivisions = 1000, absolutearea = FALSE)
   peak1_old_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, to = old_mCherry_peak1_cutoff, 
-                                   type = "spline", subdivisions = 1000,
+                                   type = "linear", subdivisions = 1000,
                                    absolutearea = FALSE)
   peak2_old_mCherry_aucs_non_abs[i] <- auc(x, y, from = old_mCherry_peak1_cutoff, 
-                                   type = "spline", subdivisions = 1000,
+                                   type = "linear", subdivisions = 1000,
                                    absolutearea = FALSE)
   #plot avgs of every wing disc line scan if debugging
   if(debug)
@@ -167,21 +167,21 @@ for(i in 1:ncol(new_mCherry_df))
   y <- na.omit(y)
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)] 
   
-  new_mCherry_aucs[i] <- auc(x, y, from = 0, type = "spline",
+  new_mCherry_aucs[i] <- auc(x, y, from = 0, type = "linear",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_new_mCherry_aucs[i] <- auc(x, y, from = 0, to = new_mCherry_peak1_cutoff, 
-                                     type = "spline", subdivisions = 1000,
+                                     type = "linear", subdivisions = 1000,
                                      absolutearea = TRUE)
   peak2_new_mCherry_aucs[i] <- auc(x, y, from = new_mCherry_peak1_cutoff, 
-                                       type = "spline", subdivisions = 1000,
+                                       type = "linear", subdivisions = 1000,
                                        absolutearea = TRUE)
-  new_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+  new_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, type = "linear",
                              subdivisions = 1000, absolutearea = FALSE)
   peak1_new_mCherry_aucs_non_abs[i] <- auc(x, y, from = 0, to = new_mCherry_peak1_cutoff, 
-                                   type = "spline", subdivisions = 1000,
+                                   type = "linear", subdivisions = 1000,
                                    absolutearea = FALSE)
   peak2_new_mCherry_aucs_non_abs[i] <- auc(x, y, from = new_mCherry_peak1_cutoff, 
-                                   type = "spline", subdivisions = 1000,
+                                   type = "linear", subdivisions = 1000,
                                    absolutearea = FALSE)
   if(debug)
   {
@@ -196,21 +196,21 @@ for(i in 1:ncol(old_orai_df))
   y <- na.omit(y)
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
   
-  old_orai_aucs[i] <- auc(x, y, from = 0, type = "spline",
+  old_orai_aucs[i] <- auc(x, y, from = 0, type = "linear",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_old_orai_aucs[i] <- auc(x, y, from = 0, to = old_orai_peak1_cutoff, 
-                                     type = "spline", subdivisions = 1000,
+                                     type = "linear", subdivisions = 1000,
                                      absolutearea = TRUE)
   peak2_old_orai_aucs[i] <- auc(x, y, from = old_orai_peak1_cutoff, 
-                                       type = "spline", subdivisions = 1000,
+                                       type = "linear", subdivisions = 1000,
                                        absolutearea = TRUE)
-  old_orai_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+  old_orai_aucs_non_abs[i] <- auc(x, y, from = 0, type = "linear",
                           subdivisions = 1000, absolutearea = FALSE)
   peak1_old_orai_aucs_non_abs[i] <- auc(x, y, from = 0, to = old_orai_peak1_cutoff , 
-                                type = "spline", subdivisions = 1000,
+                                type = "linear", subdivisions = 1000,
                                 absolutearea = FALSE)
   peak2_old_orai_aucs_non_abs[i] <- auc(x, y, from = old_orai_peak1_cutoff, 
-                                type = "spline", subdivisions = 1000,
+                                type = "linear", subdivisions = 1000,
                                 absolutearea = FALSE)
   if(debug)
   {
@@ -225,21 +225,21 @@ for(i in 1:ncol(new_orai_df))
   y <- na.omit(y)
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
   
-  new_orai_aucs[i] <- auc(x, y, from = 0, type = "spline",
+  new_orai_aucs[i] <- auc(x, y, from = 0, type = "linear",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_new_orai_aucs[i] <- auc(x, y, from = 0, to = new_orai_peak1_cutoff , 
-                                 type = "spline", subdivisions = 1000,
+                                 type = "linear", subdivisions = 1000,
                                  absolutearea = TRUE)
   peak2_new_orai_aucs[i] <- auc(x, y, from = new_orai_peak1_cutoff, 
-                                   type = "spline", subdivisions = 1000,
+                                   type = "linear", subdivisions = 1000,
                                    absolutearea = TRUE)
-  new_orai_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+  new_orai_aucs_non_abs[i] <- auc(x, y, from = 0, type = "linear",
                           subdivisions = 1000, absolutearea = FALSE)
   peak1_new_orai_aucs_non_abs[i] <- auc(x, y, from = 0, to = new_orai_peak1_cutoff , 
-                                type = "spline", subdivisions = 1000,
+                                type = "linear", subdivisions = 1000,
                                 absolutearea = FALSE)
   peak2_new_orai_aucs_non_abs[i] <- auc(x, y, from = new_orai_peak1_cutoff, 
-                                type = "spline", subdivisions = 1000,
+                                type = "linear", subdivisions = 1000,
                                 absolutearea = FALSE)
   if(debug)
   {
@@ -254,21 +254,21 @@ for(i in 1:ncol(stim_df))
   y <- na.omit(y)
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
   
-  stim_aucs[i] <- auc(x, y, from = 0, type = "spline",
+  stim_aucs[i] <- auc(x, y, from = 0, type = "linear",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_stim_aucs[i] <- auc(x, y, from = 0, to = stim_peak1_cutoff , 
-                                  type = "spline", subdivisions = 1000,
+                                  type = "linear", subdivisions = 1000,
                                   absolutearea = TRUE)
   peak2_stim_aucs[i] <- auc(x, y, from = stim_peak1_cutoff, 
-                                    type = "spline", subdivisions = 1000,
+                                    type = "linear", subdivisions = 1000,
                                     absolutearea = TRUE)
-  stim_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+  stim_aucs_non_abs[i] <- auc(x, y, from = 0, type = "linear",
                       subdivisions = 1000, absolutearea = FALSE)
   peak1_stim_aucs_non_abs[i] <- auc(x, y, from = 0, to = stim_peak1_cutoff , 
-                            type = "spline", subdivisions = 1000,
+                            type = "linear", subdivisions = 1000,
                             absolutearea = FALSE)
   peak2_stim_aucs_non_abs[i] <- auc(x, y, from = stim_peak1_cutoff, 
-                            type = "spline", subdivisions = 1000,
+                            type = "linear", subdivisions = 1000,
                             absolutearea = FALSE)
   if(debug)
   {
@@ -283,21 +283,21 @@ for(i in 1:ncol(best2_df))
   y <- na.omit(y)
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
   
-  best2_aucs[i] <- auc(x, y, from = 0, type = "spline",
+  best2_aucs[i] <- auc(x, y, from = 0, type = "linear",
                              subdivisions = 1000, absolutearea = TRUE)
   peak1_best2_aucs[i] <- auc(x, y, from = 0, to = best2_peak1_cutoff, 
-                               type = "spline", subdivisions = 1000,
+                               type = "linear", subdivisions = 1000,
                                absolutearea = TRUE)
   peak2_best2_aucs[i] <- auc(x, y, from = best2_peak1_cutoff, 
-                                 type = "spline", subdivisions = 1000,
+                                 type = "linear", subdivisions = 1000,
                                  absolutearea = TRUE)
-  best2_aucs_non_abs[i] <- auc(x, y, from = 0, type = "spline",
+  best2_aucs_non_abs[i] <- auc(x, y, from = 0, type = "linear",
                        subdivisions = 1000, absolutearea = FALSE)
   peak1_best2_aucs_non_abs[i] <- auc(x, y, from = 0, to = best2_peak1_cutoff, 
-                             type = "spline", subdivisions = 1000,
+                             type = "linear", subdivisions = 1000,
                              absolutearea = FALSE)
   peak2_best2_aucs_non_abs[i] <- auc(x, y, from = best2_peak1_cutoff, 
-                             type = "spline", subdivisions = 1000,
+                             type = "linear", subdivisions = 1000,
                              absolutearea = FALSE)
   if(debug)
   {
@@ -313,22 +313,22 @@ for(i in 1:ncol(wt_df))
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
   
   wt_aucs[i] <- auc(x, y, from = 0, 
-                    type = "spline", subdivisions = 1000,
+                    type = "linear", subdivisions = 1000,
                     absolutearea = TRUE)
   peak1_wt_aucs[i] <- auc(x, y, from = 0, to = wt_peak1_cutoff, 
-                               type = "spline", subdivisions = 1000,
+                               type = "linear", subdivisions = 1000,
                                absolutearea = TRUE)
   peak2_wt_aucs[i] <- auc(x, y, from = wt_peak1_cutoff, 
-                                 type = "spline", subdivisions = 1000,
+                                 type = "linear", subdivisions = 1000,
                                  absolutearea = TRUE)
   wt_aucs_non_abs[i] <- auc(x, y, from = 0, 
-                    type = "spline", subdivisions = 1000,
+                    type = "linear", subdivisions = 1000,
                     absolutearea = FALSE)
   peak1_wt_aucs_non_abs[i] <- auc(x, y, from = 0, to = wt_peak1_cutoff, 
-                          type = "spline", subdivisions = 1000,
+                          type = "linear", subdivisions = 1000,
                           absolutearea = FALSE)
   peak2_wt_aucs_non_abs[i] <- auc(x, y, from = wt_peak1_cutoff, 
-                          type = "spline", subdivisions = 1000,
+                          type = "linear", subdivisions = 1000,
                           absolutearea = FALSE)
   if(debug)
   {
@@ -344,22 +344,22 @@ for(i in 1:ncol(serca_df))
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
   
   serca_aucs[i] <- auc(x, y, from = 0, 
-                    type = "spline", subdivisions = 1000,
+                    type = "linear", subdivisions = 1000,
                     absolutearea = TRUE)
   peak1_serca_aucs[i] <- auc(x, y, from = 0, to = serca_peak1_cutoff , 
-                               type = "spline", subdivisions = 1000,
+                               type = "linear", subdivisions = 1000,
                                absolutearea = TRUE)
   peak2_serca_aucs[i] <- auc(x, y, from = serca_peak1_cutoff, 
-                                 type = "spline", subdivisions = 1000,
+                                 type = "linear", subdivisions = 1000,
                                  absolutearea = TRUE)
   serca_aucs_non_abs[i] <- auc(x, y, from = 0, 
-                       type = "spline", subdivisions = 1000,
+                       type = "linear", subdivisions = 1000,
                        absolutearea = FALSE)
   peak1_serca_aucs_non_abs[i] <- auc(x, y, from = 0, to = serca_peak1_cutoff , 
-                             type = "spline", subdivisions = 1000,
+                             type = "linear", subdivisions = 1000,
                              absolutearea = FALSE)
   peak2_serca_aucs_non_abs[i] <- auc(x, y, from = serca_peak1_cutoff, 
-                             type = "spline", subdivisions = 1000,
+                             type = "linear", subdivisions = 1000,
                              absolutearea = FALSE)
   if(debug)
   {
@@ -375,22 +375,22 @@ for(i in 1:ncol(sercamCherry_df))
   x <- position_df$POSITION[seq(from=0, to=length(y), by=1)]
   
   sercamCherry_aucs[i] <- auc(x, y, from = 0, 
-                       type = "spline", subdivisions = 1000,
+                       type = "linear", subdivisions = 1000,
                        absolutearea = TRUE)
   peak1_sercamCherry_aucs[i] <- auc(x, y, from = 0, to = sercamCherry_peak1_cutoff , 
-                                  type = "spline", subdivisions = 1000,
+                                  type = "linear", subdivisions = 1000,
                                   absolutearea = TRUE)
   peak2_sercamCherry_aucs[i] <- auc(x, y, from = sercamCherry_peak1_cutoff, 
-                                    type = "spline", subdivisions = 1000,
+                                    type = "linear", subdivisions = 1000,
                                     absolutearea = TRUE)
   sercamCherry_aucs_non_abs[i] <- auc(x, y, from = 0, 
-                              type = "spline", subdivisions = 1000,
+                              type = "linear", subdivisions = 1000,
                               absolutearea = FALSE)
   peak1_sercamCherry_aucs_non_abs[i] <- auc(x, y, from = 0, to = sercamCherry_peak1_cutoff , 
-                                    type = "spline", subdivisions = 1000,
+                                    type = "linear", subdivisions = 1000,
                                     absolutearea = FALSE)
   peak2_sercamCherry_aucs_non_abs[i] <- auc(x, y, from = sercamCherry_peak1_cutoff, 
-                                    type = "spline", subdivisions = 1000,
+                                    type = "linear", subdivisions = 1000,
                                     absolutearea = FALSE)
   if(debug)
   {
